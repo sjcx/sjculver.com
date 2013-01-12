@@ -6,28 +6,33 @@
 		<link href="home.css.scss" type="text/css" rel="stylesheet" />
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+		<%= javascript_include_tag "home" %>
 	</head>
 	<body>
-		<div id="header">
-			<p>
-				s. j. culver
-			</p>
-		</div>
-		<div id = "content">
-			<% @contents.each do |content| %>
-			<div id = "block" data-tag="<%= content.tag %>">
-					<%= raw content.excerpt %>
+		<select id="choose_tag">
+			<option value="">Choose one</option>
+			<option value="SA">analysis</option>
+			<option value="essay">essay</option>
+			<option value="review">review</option>
+			<option value="fiction">fiction</option>
+			<option value="humor">humor</option>
+		</select>
+		
+		<% @tags.each do |t|%>
+		<div style = "display: none;" id = "<%= t %>">
+			<% Content.where(:tag => t).each do |c| %>
+			<div id = "block">
+				<%= raw c.excerpt %>
 				<div id = "title">
-					<a href="<%= content.url %>"><%= raw content.title %></a>
+					<a href="<%= c.url %>"><%= raw c.title %></a>
 				</div>
 			</div>
 			<% end %>
 		</div>
-		<div id="footer">
-			<p>
-				<a href="https://twitter.com/sj_culver" class="footerlink">twitter&nbsp;&nbsp;</a>
-				<a href="mailto:contact@sjculver.com" class="footerlink">&nbsp;&nbsp;email</a>
-			</p>
-		</div>
+		
+		<% end %>
+		
+		
+
 	</body>
 </html>
