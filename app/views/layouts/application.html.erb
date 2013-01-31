@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>s.j. culver - portfolio</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  		<script type="text/javascript">
+	<head>
+		<title>s.j. culver - portfolio</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-33612079-1']);
 			_gaq.push(['_trackPageview']);
@@ -19,8 +19,35 @@
 				s.parentNode.insertBefore(ga, s);
 			})();
 		</script>
-</head>
-<body>
-	<%= yield %>
-</body>
+	</head>
+	<body>
+		<!-- navbar -->
+		<div class="navbar">
+			<div class="navbar-inner">
+				<div class="container">
+					<ul class="nav pull-right">
+						<% if admin_signed_in? %>
+						<li>
+							<a href="#">Logged in as <%= current_admin.email %></a>
+						</li>
+						<li>
+							<%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>
+						</li>
+						<% else %>
+						<li>
+							<%= link_to('Login', new_admin_session_path)  %>
+						</li>
+						<% end %>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<p class="notice">
+			<%= notice %>
+		</p>
+		<p class="alert">
+			<%= alert %>
+		</p>
+		<%= yield %>
+	</body>
 </html>
