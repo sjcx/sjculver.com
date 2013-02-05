@@ -1,33 +1,22 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link href="home.css.scss" type="text/css" rel="stylesheet" />
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
-	</head>
-	<body>
-		<div id="homeheader">
-			<p>
-				s. j. culver
-			</p>
+<div id="homeheader">
+	<p>
+		s. j. culver
+	</p>
+</div>
+<div id = "content">
+	<% @contents.each do |content| %>
+	<div id = "block" data-tag="<%= content.tag %>">
+		<%= raw content.excerpt %>
+		<div id = "title">
+			<a href="<%= content.url %>"><%= raw content.title %></a>
 		</div>
-		<div id = "content">
-			<% @contents.each do |content| %>
-			<div id = "block" data-tag="<%= content.tag %>">
-					<%= raw content.excerpt %>
-				<div id = "title">
-					<a href="<%= content.url %>"><%= raw content.title %></a>
-				</div>
-			</div>
-			<% end %>
-		</div>
-		<div id="footer">
-			<p>
-				<a href="https://twitter.com/sj_culver" class="footerlink">twitter&nbsp;&nbsp;</a>
-				<a href="mailto:contact@sjculver.com" class="footerlink">&nbsp;&nbsp;email</a>
-			</p>
-		</div>
-	</body>
-</html>
+	</div>
+	<% end %>
+</div>
+<div id="footer">
+	<p>
+		<a href="https://twitter.com/sj_culver" class="footerlink">twitter&nbsp;&nbsp;</a>
+		<a href="mailto:contact@sjculver.com" class="footerlink">&nbsp;&nbsp;email</a>
+	</p>
+</div>
+

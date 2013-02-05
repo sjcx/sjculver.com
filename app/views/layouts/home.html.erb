@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link href="home.css.scss" type="text/css" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
 		<title>s.j. culver - portfolio</title>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<%= javascript_include_tag "application" %>
@@ -20,23 +24,8 @@
 			})();
 		</script>
 	</head>
+
 	<body>
-		<!-- navbar -->
-		<div class="navbar">
-			<% if admin_signed_in? %>
-			<p>
-				<a href="#">Logged in as <%= current_admin.email %></a>
-			</p>
-			<p>
-				<%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>
-			</p>
-			<% else %>
-			<p>
-				<%= link_to('Login', new_admin_session_path)  %>
-			</p>
-			<% end %>
-		<!-- alerts -->	
-		</div>
 		<p class="notice">
 			<%= notice %>
 		</p>
@@ -44,5 +33,6 @@
 			<%= alert %>
 		</p>
 		<%= yield %>
+
 	</body>
 </html>

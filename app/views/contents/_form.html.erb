@@ -1,0 +1,8 @@
+<%= simple_form_for(@content, :html => { :class => 'form-horizontal' }) do |content| %>
+<%= content.input :title %>
+<%= content.input :excerpt %>
+<%= content.input :url %>
+<%= content.input :tag, collection: [ "social analysis", "review", "essay", "fiction", "humor" ] %>
+<br />
+<%= content.button :submit %>
+<% end %>

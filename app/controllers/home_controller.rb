@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
+  layout "home"
+  
   def index
-    @contents = Content.all
+    @contents = Content.all(:order => "created_at DESC")
   end
 
   def recommend
@@ -10,4 +12,3 @@ class HomeController < ApplicationController
 
 end
 
-#Content.find_all_by_tag(params[:tag])

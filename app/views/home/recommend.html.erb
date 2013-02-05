@@ -1,35 +1,33 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-"http://www.w3.org/TR/html4/loose.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<link href="home.css.scss" type="text/css" rel="stylesheet" />
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
-		<%= javascript_include_tag "home" %>
-	</head>
-	<body>
-		<select id="choose_tag">
-			<option value="">Choose one</option>
-			<option value="SA">analysis</option>
-			<option value="essay">essay</option>
-			<option value="review">review</option>
-			<option value="fiction">fiction</option>
-			<option value="humor">humor</option>
-		</select>
-		
-		<% @tags.each do |t|%>
-		<div style = "display: none;" id = "<%= t %>">
-			<% Content.where(:tag => t).each do |c| %>
-			<div id = "block">
-				<%= raw c.excerpt %>
-				<div id = "title">
-					<a href="<%= c.url %>"><%= raw c.title %></a>
-				</div>
+<!--body-->
+<head>
+	<%= stylesheet_link_tag    "home", :media => "all" %>
+	<%= javascript_include_tag "home" %>
+	<%= csrf_meta_tags %>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Monoton' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	<select id="choose_tag">
+		<option value="">Choose one</option>
+		<option value="SA">analysis</option>
+		<option value="essay">essay</option>
+		<option value="review">review</option>
+		<option value="fiction">fiction</option>
+		<option value="humor">humor</option>
+	</select>
+
+	<% @tags.each do |t|%>
+	<div style = "display: none;" id = "<%= t %>">
+		<% Content.where(:tag => t).each do |c| %>
+		<div id = "block">
+			<%= raw c.excerpt %>
+			<div id = "title">
+				<a href="<%= c.url %>"><%= raw c.title %></a>
 			</div>
-			<% end %>
 		</div>
-		
-		<% end %>	
-	</body>
+		<% end %>
+	</div>
+
+	<% end %>
+</body>
 </html>
