@@ -3,6 +3,7 @@
 	<head>
 		<title>s.j. culver - portfolio</title>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<%= javascript_include_tag "application" %>
 		<%= csrf_meta_tags %>
 		<script type="text/javascript">
@@ -25,24 +26,21 @@
 		<div class="navbar">
 			<% if admin_signed_in? %>
 			<p>
-				<a href="#">Logged in as <%= current_admin.email %></a>
-			</p>
-			<p>
-				<%= link_to('Logout', destroy_admin_session_path, :method => :delete) %>
+				Logged in as <%= current_admin.email %>&nbsp;&nbsp;||&nbsp;&nbsp;
+				<%= link_to('Logout', destroy_admin_session_path, :method => :delete, :class => "navbarlink" ) %>
 			</p>
 			<% else %>
 			<p>
 				<%= link_to('Login', new_admin_session_path)  %>
 			</p>
 			<% end %>
-		<!-- alerts -->	
+			<!-- alerts -->
 		</div>
-		<p class="notice">
-			<%= notice %>
-		</p>
-		<p class="alert">
-			<%= alert %>
-		</p>
+		<% unless flash.empty? %>
+		<% flash.each do |key, value| %>
+		<%= content_tag :div, value, :class => "flash #{key}" %>
+		<% end %>
+		<% end %>
 		<%= yield %>
 	</body>
 </html>

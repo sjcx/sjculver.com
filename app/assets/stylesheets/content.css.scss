@@ -1,3 +1,65 @@
 // Place all the styles related to the Content controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+//
+//-------Navbar
+.navbar{
+  position: relative;
+  top: 5px;
+  width: 966px;
+  text-align: right;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 85%;
+}
+.page-header{
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+//-------Table
+.contents-table{
+  margin-left:auto; 
+  margin-right:auto;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 85%;
+}
+tr:nth-child(odd){
+  background-color: #EAF2D3;
+}
+td {
+  padding: 10px 
+}
+.addcontent{
+  width: 966px;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 85%;
+}
+//-----------Form
+.simple_form{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 85%;
+}
+.pageheader2{
+  font-family: 'Open Sans', sans-serif;
+}
+.pageheader3{
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+//-----Notices
+.notice {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 85%;
+  background-color: #EAF2D3;
+  padding: 4px;
+  border: 1px solid;
+  border-radius: 0.5em;
+}
+//------Show page
+.contents-excerpt{
+  width: 400px;
+  margin-left:auto; 
+  margin-right:auto;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 85%;
+}

@@ -3,6 +3,11 @@
 		s. j. culver
 	</p>
 </div>
+<% unless flash.empty? %>
+		<% flash.each do |key, value| %>
+		<%= content_tag :div, value, :class => "flash #{key}" %>
+		<% end %>
+		<% end %>
 <div id = "content">
 	<% @contents.each do |content| %>
 	<div id = "block" data-tag="<%= content.tag %>">

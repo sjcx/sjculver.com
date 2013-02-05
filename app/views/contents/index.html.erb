@@ -3,21 +3,25 @@
 	<h1>Contents</h1>
 </div>
 <div>
-	<table class="table table-hover">
+	<table class="contents-table">
 		<tr>
-			<th>Title</th>
-			<th>Date</th>
+			<th></th>
 			<th></th>
 			<th></th>
 		</tr>
 		<% @contents.each do |content| %>
 		<tr>
 			<td><a href="<%= raw content.url %>"><%= raw content.title %></a></td>
-			<td><%= content.created_at %></td>
 			<td><%= link_to "Delete", @content, :method => :delete %></td>
-			<td><%= link_to "Edit", edit_content_url(content.id) %>
+			<td><%= link_to "Edit", edit_content_url(content.id) %></td>
 		</tr>
 		<% end %>
 	</table>
 </div>
+<br>
+<div class="addcontent">
 <%= link_to 'Add Content', new_content_url %>
+</div>
+<br>
+<br>
+<br>
